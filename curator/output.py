@@ -12,7 +12,13 @@ def writeSubmissions(submissions, output_path):
     language = submission["language"]
     name = submission["name"]
     source = submission["source"]
-    path = os.path.join(output_path, name + "." + lang_extensions.extension(language))
+    folder = os.path.join(output_path, platform)
+    path = os.path.join(folder, name + "." + lang_extensions.extension(language))
+    if not os.path.exists(folder):
+      os.mkdir(folder)
+    elif not os.path.isdir(folder):
+      # Why would this even happen
+      continue
     with open(path, 'w+') as f:
       f.write(source)
       f.close
