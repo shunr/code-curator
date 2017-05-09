@@ -1,0 +1,12 @@
+{
+  "cpp14": "cpp",
+  "cpp11": "cpp",
+  "cpp03": "cpp",
+  "pypy": "py",
+  "pypy3": "py",
+  "py2": "py",
+  "py3": "py",
+  "java7": "java",
+  "java8": "java",
+  "text": "txt"
+}

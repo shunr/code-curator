@@ -1,0 +1,9 @@
+{
+  "sources": {
+    "dmoj": {
+      "username": "wew_lad",
+      "password": "correcthorsebatterystaple"
+    }
+  },
+  "output_path": "/path/to/output/folder"
+}
