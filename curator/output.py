@@ -26,4 +26,3 @@ def writeSubmissions(submissions, output_path):
  
   
     
-  

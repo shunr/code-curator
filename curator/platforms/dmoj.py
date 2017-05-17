@@ -7,6 +7,7 @@ from curator import settings
 PLATFORM_NAME = "DMOJ"
 LOGIN_URL = "https://dmoj.ca/accounts/login"
 SUBMISSIONS_URL = "https://dmoj.ca/api/user/submissions/"
+PROBLEM_URL = "https://dmoj.ca/problem/"
 
 config = settings.loadConfig()["sources"]["dmoj"]
 browser = mechanicalsoup.StatefulBrowser()
@@ -26,7 +27,10 @@ def fetch():
   
   candidates = json.loads(submissions.text)
   return _get_best_submissions(candidates)
-  
+
+def platformName():
+  return PLATFORM_NAME
+
 def _get_source(submission_id):
   resp = browser.get("https://dmoj.ca/src/" + submission_id + "/raw")
   if resp.status_code == 200:
@@ -55,7 +59,9 @@ def _get_best_submissions(candidates):
       "name": problem_id,
       "source": source,
       "language": candidates[submission_id]["language"],
-      "platform": PLATFORM_NAME
+      "platform": PLATFORM_NAME,
+      "difficulty": str(candidates[submission_id]["points"]),
+      "link": PROBLEM_URL + problem_id
     }
     result.append(submission)
   return result
