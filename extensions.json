@@ -2,6 +2,7 @@
   "cpp14": "cpp",
   "cpp11": "cpp",
   "cpp03": "cpp",
+  "clangx": "cpp",
   "pypy": "py",
   "pypy3": "py",
   "py2": "py",

@@ -14,4 +14,14 @@ def tableRow(*args):
 
 def link(text, url):
   return "[" + text + "](" + url + ")"
+
+def h1(text):
+  return "# " + text + "\n"
+
+def h2(text):
+  return "## " + text + "\n"
+
+def paragraph(text):
+  return text + "\n"
+
   

@@ -64,4 +64,5 @@ def _get_best_submissions(candidates):
       "link": PROBLEM_URL + problem_id
     }
     result.append(submission)
+  result = sorted(result, key=lambda k: k['name'])
   return result
