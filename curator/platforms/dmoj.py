@@ -9,7 +9,7 @@ LOGIN_URL = "https://dmoj.ca/accounts/login"
 SUBMISSIONS_URL = "https://dmoj.ca/api/user/submissions/"
 PROBLEM_URL = "https://dmoj.ca/problem/"
 
-config = settings.loadConfig()["sources"]["dmoj"]
+config = settings.loadConfig()["platforms"]["dmoj"]
 browser = mechanicalsoup.StatefulBrowser()
 
 def fetch():
