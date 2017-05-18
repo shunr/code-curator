@@ -11,7 +11,5 @@ submissions = {
 
 print("Writing to folder...")
 
-for platform, items in submissions.items():
-    output.write_submissions(items)
-
+output.write_submissions(submissions)
 readme.write_readme(submissions)
