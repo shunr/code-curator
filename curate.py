@@ -1,20 +1,17 @@
 from curator.platforms import *
-
 from curator import *
 
-config = settings.loadConfig()
-output.prepOutput()
+output.prep_output()
 
 print("Getting submissions...")
 
 submissions = {
-  dmoj.platformName(): dmoj.fetch()
+    dmoj.platform_name(): dmoj.fetch()
 }
 
 print("Writing to folder...")
 
 for platform, items in submissions.items():
-  output.writeSubmissions(items)
-  
-readme.writeReadme(submissions)
+    output.write_submissions(items)
 
+readme.write_readme(submissions)

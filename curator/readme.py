@@ -1,29 +1,35 @@
 import os
-from curator.util import *
+from curator.util import markdown
+from curator.util import lang_extensions
 from curator import settings
 
-config = settings.loadConfig()
-FOLDER = config["output_path"]
-README_PATH = os.path.join(FOLDER, config["readme_name"])
+CONFIG = settings.load_config()
+FOLDER = CONFIG["output_path"]
+README_PATH = os.path.join(FOLDER, CONFIG["readme_name"])
 
-def writeReadme(submissions):
-  with open(README_PATH, 'w+') as f:
-    _writeHeader(f)
-    for platform, s in submissions.items():
-      _writePlatformSubmissions(f, s, platform)
-    f.close()
 
-def _writeHeader(f):
-  f.write(markdown.h1(config["readme_title"]))
-  f.write(markdown.paragraph(config["readme_description"]))
-      
-def _writePlatformSubmissions(f, submissions, platform):
-  f.write(markdown.h2(platform))
-  f.write(markdown.tableHeader("Problem", "Source", "Language", "Difficulty"))
-  for s in submissions:
-    name = s["name"]
-    language = s["language"]
-    difficulty = s["difficulty"]
-    file_path = os.path.join(s["platform"], name + "." + lang_extensions.extension(language))
-    f.write(markdown.tableRow(s["name"], markdown.link("Source", file_path), language, difficulty))
-    
+def write_readme(submissions):
+    with open(README_PATH, 'w+') as f:
+        _write_header(f)
+        for platform, s in submissions.items():
+            _write_platform_submissions(f, s, platform)
+        f.close()
+
+
+def _write_header(file):
+    file.write(markdown.h1(CONFIG["readme_title"]))
+    file.write(markdown.paragraph(CONFIG["readme_description"]))
+
+
+def _write_platform_submissions(file, submissions, platform):
+    file.write(markdown.h2(platform))
+    file.write(markdown.table_header(
+        "Problem", "Source", "Language", "Difficulty"))
+    for submission in submissions:
+        name = submission["name"]
+        language = submission["language"]
+        difficulty = submission["difficulty"]
+        file_name = name + "." + lang_extensions.extension(language)
+        file_path = os.path.join(submission["platform"], file_name)
+        file.write(markdown.table_row(submission["name"], markdown.link(
+            "Source", file_path), language, difficulty))

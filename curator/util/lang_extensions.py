@@ -1,9 +1,10 @@
 from curator import settings
-translations = settings.loadExtensions()
+TRANSLATIONS = settings.load_extensions()
+
 
 def extension(lang):
-  name = lang.lower()
-  if name in translations.keys():
-    return translations[name]
-  else:
-    return name
+    name = lang.lower()
+    if name in TRANSLATIONS.keys():
+        return TRANSLATIONS[name]
+    else:
+        return name
