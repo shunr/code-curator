@@ -9,7 +9,7 @@ README_PATH = os.path.join(FOLDER, CONFIG["readme_name"])
 
 
 def write_readme(submissions):
-    with open(README_PATH, 'w+') as f:
+    with open(README_PATH, 'w+', newline='\n') as f:
         _write_header(f)
         for platform, s in submissions.items():
             _write_platform_submissions(f, s, platform)

@@ -29,7 +29,7 @@ def write_submissions(submissions):
             elif not os.path.isdir(folder):
                 # Why would this even happen
                 continue
-            with open(path, 'w+') as file:
+            with open(path, 'w+', newline='\n') as file:
                 file.write(source)
                 file.close()
             print("Writing to " + path)

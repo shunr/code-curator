@@ -4,7 +4,7 @@ import json
 
 from curator import settings
 
-PLATFORM_NAME = "CodeForces"
+PLATFORM_NAME = "Codeforces"
 SUBMISSIONS_URL = "http://codeforces.com/api/user.status?handle="
 PROBLEM_URL = "http://codeforces.com/problemset/problem/"
 
