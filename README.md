@@ -28,9 +28,9 @@ python3 curate.py
 ## Configuration
 | Option | Description |
 |---|---|
-|```platforms```| Contains configuration for authentication on different platforms, one object per platform with ```username``` key. May contain ```password``` key if authentication is required |
+|```platforms```| Contains configuration for authentication on different platforms, one object per platform with ```username``` key. May contain ```password``` key if logging in is required |
 |```output_path```| Relative or absolute path to generate the repository |
-|```readme_name```| Filename of automatically generated table of contents (keep as ```REAME.md``` for GitHub) |
+|```readme_name```| Filename of automatically generated table of contents (keep as ```README.md``` for GitHub) |
 |```readme_title```| Title that will be displayed in the header of the table of contents |
 |```readme_description```| Markdown description that will appear in the generated header |
 
@@ -41,6 +41,9 @@ python3 curate.py
     "dmoj": {
       "username": "wew_lad",
       "password": "correcthorsebatterystaple"
+    },
+    "codeforces": {
+      "username": "niceindividual"
     }
   },
   "output_path": "output",

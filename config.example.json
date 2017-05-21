@@ -5,10 +5,10 @@
       "password": "correcthorsebatterystaple"
     },
     "codeforces": {
-      "username": "tourist"
+      "username": "niceindividual"
     }
   },
-  "output_path": "output",
+  "output_path": "../output",
   "readme_name": "README.md",
   "readme_title": "Competitive Programming Archive",
   "readme_description": "Curated automagically using [Code Curator](https://github.com/shunr/code-curator)"

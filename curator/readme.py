@@ -31,7 +31,7 @@ def _write_platform_submissions(file, submissions, platform):
         difficulty = submission["difficulty"]
         link = submission["link"]
         file_name = name + "." + lang_extensions.extension(language)
-        file_path = os.path.join(submission["platform"], file_name)
+        file_path = submission["platform"] + "/" + file_name
         file.write(markdown.table_row(
             markdown.link(name, link),
             markdown.link("Source", file_path), language, difficulty))

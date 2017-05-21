@@ -8,7 +8,7 @@ output.prep_output()
 print("Getting submissions...")
 
 submissions = {
-    #dmoj.platform_name(): dmoj.fetch(),
+    dmoj.platform_name(): dmoj.fetch(),
     codeforces.platform_name(): codeforces.fetch()
 }
 

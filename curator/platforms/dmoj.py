@@ -24,7 +24,7 @@ def fetch():
 
     if auth.status_code != 200 or submissions.status_code != 200:
         # Error connecting to dmoj, throw error
-        return None
+        return list()
 
     candidates = json.loads(submissions.text)
     return _get_best_submissions(candidates)

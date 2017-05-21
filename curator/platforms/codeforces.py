@@ -16,7 +16,7 @@ def fetch():
     submissions = BROWSER.get(SUBMISSIONS_URL + CONFIG["username"])
     if submissions.status_code != 200:
         # Error connecting to codeforces, throw error
-        return None
+        return list()
     candidates = json.loads(submissions.text)["result"]
     return _get_best_submissions(candidates)
 
