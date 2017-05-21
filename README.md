@@ -4,6 +4,7 @@ Python utility to generate an archive from code you've written on competitive pr
 
 ## Supported platforms
 - DMOJ
+- CodeForces
 
 ## Installation
 Clone this repo
@@ -27,7 +28,7 @@ python3 curate.py
 ## Configuration
 | Option | Description |
 |---|---|
-|```platforms```| Contains configuration for authentication on different platforms, one object with ```username``` and ```password``` keys for each platform |
+|```platforms```| Contains configuration for authentication on different platforms, one object per platform with ```username``` key. May contain ```password``` key if authentication is required |
 |```output_path```| Relative or absolute path to generate the repository |
 |```readme_name```| Filename of automatically generated table of contents (keep as ```REAME.md``` for GitHub) |
 |```readme_title```| Title that will be displayed in the header of the table of contents |

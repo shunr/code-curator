@@ -54,7 +54,7 @@ def _get_best_submissions(candidates):
             if points > current_points or (time < current_time and points == current_points):
                 best_submissions[pid] = (k, points, time)
     for problem_id, v in best_submissions.items():
-        submission_id = v[0]
+        submission_id = str(v[0])
         source = _get_source(submission_id)
         if not source:
             # Could not fetch source, throw warning

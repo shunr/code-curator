@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from curator.platforms import *
 from curator import *
 
@@ -6,7 +8,8 @@ output.prep_output()
 print("Getting submissions...")
 
 submissions = {
-    dmoj.platform_name(): dmoj.fetch()
+    #dmoj.platform_name(): dmoj.fetch(),
+    codeforces.platform_name(): codeforces.fetch()
 }
 
 print("Writing to folder...")

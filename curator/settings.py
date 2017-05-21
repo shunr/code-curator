@@ -6,7 +6,7 @@ def load_config():
 
 
 def load_extensions():
-    return _load("extensions.json")
+    return _load("extension_patterns.json")
 
 
 def _load(file_path):
