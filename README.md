@@ -4,7 +4,7 @@ Python utility to generate an archive from code you've written on competitive pr
 
 ## Supported platforms
 - DMOJ
-- CodeForces
+- Codeforces
 
 ## Installation
 Clone this repo
