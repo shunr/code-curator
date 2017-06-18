@@ -5,6 +5,7 @@ Python utility to generate an archive from code you've written on competitive pr
 ## Supported platforms
 - DMOJ
 - Codeforces
+- SPOJ
 
 ## Installation
 Clone this repo
@@ -44,6 +45,10 @@ python3 curate.py
     },
     "codeforces": {
       "username": "niceindividual"
+    },
+    "spoj": {
+      "username": "sample_text",
+      "password": "falsecowcordednail"
     }
   },
   "output_path": "output",

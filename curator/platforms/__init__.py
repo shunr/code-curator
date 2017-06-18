@@ -1,1 +1,1 @@
-__all__ = ["dmoj", "codeforces"]
+__all__ = ["dmoj", "codeforces", "spoj"]

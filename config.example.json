@@ -6,6 +6,10 @@
     },
     "codeforces": {
       "username": "niceindividual"
+    },
+    "spoj": {
+      "username": "sample_text",
+      "password": "falsecowcordednail"
     }
   },
   "output_path": "../output",
