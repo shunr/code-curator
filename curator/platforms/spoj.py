@@ -1,9 +1,5 @@
 from collections import defaultdict
 import mechanicalsoup
-from bs4 import BeautifulSoup
-import json
-
-import codecs
 
 from curator import settings
 
@@ -15,7 +11,7 @@ SUBMISSIONS_URL = "http://www.spoj.com/status/" + CONFIG["username"] + "/signedl
 SUBMISSION_SOURCE_URL = "http://www.spoj.com/files/src/plain/"
 PROBLEM_URL = "http://spoj.com/problems/"
 
-BROWSER = mechanicalsoup.StatefulBrowser(soup_config={'features':'html.parser'})
+BROWSER = mechanicalsoup.StatefulBrowser()
 
 def fetch():
     BROWSER.session.headers['Referer'] = LOGIN_URL

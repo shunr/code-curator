@@ -1,13 +1,15 @@
 {
   "exact": {
     "c#": "cs",
-    "c": "c"
+    "c": "c",
+    "jav": "java"
   },
   "fuzzy": {
     "cpp": "cpp",
     "c++": "cpp",
     "clang": "cpp",
     "py": "py",
+    "js": "js",
     "java": "java",
     "text": "txt"
   }
