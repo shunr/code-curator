@@ -49,8 +49,8 @@ def _get_best_submissions(candidates):
     for problem_name, v in best_submissions.items():
         submission_object = v[0]
         submission_id = str(submission_object["id"])
-        contest_id = str(problem["contestId"])
         problem = defaultdict(int, submission_object["problem"])
+        contest_id = str(problem["contestId"])
         source = _get_source(contest_id, submission_id)
         if not source:
             # Could not fetch source, throw warning
