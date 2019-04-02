@@ -14,9 +14,9 @@ BROWSER = mechanicalsoup.StatefulBrowser()
 
 
 def fetch():
-    BROWSER.session.headers['Referer'] = LOGIN_URL
+    BROWSER.session.headers["Referer"] = LOGIN_URL
     BROWSER.open(LOGIN_URL)
-    BROWSER.select_form('form')
+    BROWSER.select_form("form")
     BROWSER["username"] = CONFIG["username"]
     BROWSER["password"] = CONFIG["password"]
     auth = BROWSER.submit_selected()
@@ -44,14 +44,16 @@ def _get_source(submission_id):
 
 def _get_best_submissions(candidates):
     result = []
-    best_submissions = defaultdict(lambda: (0, 0, 2**32))
+    best_submissions = defaultdict(lambda: (0, 0, 2 ** 32))
     for k, v in candidates.items():
         if v["result"] == "AC":
             pid = v["problem"]
             points = v["points"]
             time = v["time"]
             current_id, current_points, current_time = best_submissions[pid]
-            if points > current_points or (time < current_time and points == current_points):
+            if points > current_points or (
+                time < current_time and points == current_points
+            ):
                 best_submissions[pid] = (k, points, time)
     for problem_id, v in best_submissions.items():
         submission_id = str(v[0])
@@ -65,8 +67,8 @@ def _get_best_submissions(candidates):
             "language": candidates[submission_id]["language"],
             "platform": PLATFORM_NAME,
             "difficulty": str(candidates[submission_id]["points"]),
-            "link": PROBLEM_URL + problem_id
+            "link": PROBLEM_URL + problem_id,
         }
         result.append(submission)
-    result = sorted(result, key=lambda k: k['name'])
+    result = sorted(result, key=lambda k: k["name"])
     return result

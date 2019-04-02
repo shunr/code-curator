@@ -10,7 +10,7 @@ print("Getting submissions...")
 submissions = {
     dmoj.platform_name(): dmoj.fetch(),
     codeforces.platform_name(): codeforces.fetch(),
-    spoj.platform_name(): spoj.fetch()
+    spoj.platform_name(): spoj.fetch(),
 }
 
 print("Writing to folder...")
