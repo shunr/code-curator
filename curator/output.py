@@ -22,14 +22,15 @@ def write_submissions(submissions):
             name = submission["name"]
             source = submission["source"]
             folder = os.path.join(OUTPUT_PATH, platform)
-            path = os.path.join(folder, name + "." +
-                                lang_extensions.extension(language))
+            path = os.path.join(
+                folder, name + "." + lang_extensions.extension(language)
+            )
             if not os.path.exists(folder):
                 os.mkdir(folder)
             elif not os.path.isdir(folder):
                 # Why would this even happen
                 continue
-            with open(path, 'w+', newline='\n') as file:
+            with open(path, "w+", newline="\n") as file:
                 file.write(source)
                 file.close()
             print("Writing to " + path)

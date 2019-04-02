@@ -26,7 +26,9 @@ def platform_name():
 
 
 def _get_source(contest_id, submission_id):
-    BROWSER.open("http://codeforces.com/contest/" + contest_id + "/submission/" + submission_id)
+    BROWSER.open(
+        "http://codeforces.com/contest/" + contest_id + "/submission/" + submission_id
+    )
     page = BROWSER.get_current_page()
     src = page.find("pre", class_="program-source")
     if src:
@@ -61,8 +63,8 @@ def _get_best_submissions(candidates):
             "language": submission_object["programmingLanguage"],
             "platform": PLATFORM_NAME,
             "difficulty": str(problem["points"]),
-            "link": PROBLEM_URL + contest_id + "/" + str(problem["index"])
+            "link": PROBLEM_URL + contest_id + "/" + str(problem["index"]),
         }
         result.append(submission)
-    result = sorted(result, key=lambda k: k['name'])
+    result = sorted(result, key=lambda k: k["name"])
     return result
