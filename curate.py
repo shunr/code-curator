@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from curator.platforms import *
 from curator import *
+from curator.platforms import *
 
 output.prep_output()
 

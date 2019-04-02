@@ -1,6 +1,6 @@
 from collections import defaultdict
-import mechanicalsoup
 
+import mechanicalsoup
 from curator import settings
 
 CONFIG = settings.load_config()["platforms"]["spoj"]

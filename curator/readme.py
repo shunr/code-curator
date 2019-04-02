@@ -1,7 +1,7 @@
 import os
-from curator.util import markdown
-from curator.util import lang_extensions
+
 from curator import settings
+from curator.util import lang_extensions, markdown
 
 CONFIG = settings.load_config()
 FOLDER = CONFIG["output_path"]

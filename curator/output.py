@@ -1,6 +1,7 @@
 import os
-from curator.util import lang_extensions
+
 from curator import settings
+from curator.util import lang_extensions
 
 CONFIG = settings.load_config()
 OUTPUT_PATH = CONFIG["output_path"]

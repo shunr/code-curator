@@ -1,7 +1,7 @@
-from collections import defaultdict
-import mechanicalsoup
 import json
+from collections import defaultdict
 
+import mechanicalsoup
 from curator import settings
 
 PLATFORM_NAME = "Codeforces"
