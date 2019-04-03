@@ -1,4 +1,5 @@
 from curator import settings
+
 TRANSLATIONS = settings.load_extensions()
 EXACT = TRANSLATIONS["exact"]
 FUZZY = TRANSLATIONS["fuzzy"]

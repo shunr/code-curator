@@ -1,6 +1,6 @@
 from collections import defaultdict
-import mechanicalsoup
 
+import mechanicalsoup
 from curator import settings
 
 CONFIG = settings.load_config()["platforms"]["spoj"]
@@ -13,10 +13,11 @@ PROBLEM_URL = "http://spoj.com/problems/"
 
 BROWSER = mechanicalsoup.StatefulBrowser()
 
+
 def fetch():
-    BROWSER.session.headers['Referer'] = LOGIN_URL
+    BROWSER.session.headers["Referer"] = LOGIN_URL
     BROWSER.open(LOGIN_URL)
-    BROWSER.select_form('form')
+    BROWSER.select_form("form")
     BROWSER["login_user"] = CONFIG["username"]
     BROWSER["password"] = CONFIG["password"]
     auth = BROWSER.submit_selected()
@@ -25,7 +26,7 @@ def fetch():
     if auth.status_code != 200 or submissions.status_code != 200:
         # Error connecting to spoj, throw error
         return list()
-        
+
     candidates = _parse_submissions(submissions.text)
     return _get_best_submissions(candidates)
 
@@ -44,7 +45,7 @@ def _get_source(submission_id):
 
 def _get_best_submissions(candidates):
     result = []
-    best_submissions = defaultdict(lambda: (0, 2**32))
+    best_submissions = defaultdict(lambda: (0, 2 ** 32))
     for k, v in candidates.items():
         if v["result"] == "AC":
             pid = v["problem"]
@@ -52,7 +53,7 @@ def _get_best_submissions(candidates):
             current_id, current_time = best_submissions[pid]
             if time < current_time:
                 best_submissions[pid] = (k, time)
-    
+
     for problem_id, v in best_submissions.items():
         submission_id = str(v[0])
         source = _get_source(submission_id)
@@ -65,26 +66,27 @@ def _get_best_submissions(candidates):
             "language": candidates[submission_id]["language"],
             "platform": PLATFORM_NAME,
             "difficulty": "N/A",
-            "link": PROBLEM_URL + problem_id
+            "link": PROBLEM_URL + problem_id,
         }
         result.append(submission)
-    result = sorted(result, key=lambda k: k['name'])
+    result = sorted(result, key=lambda k: k["name"])
     return result
+
 
 def _parse_submissions(plaintext):
     plaintext = plaintext.split("\n")
     numsubs = len(plaintext) - 22
 
     formatted = {}
-    submissions = plaintext[9:9+numsubs]
-    
+    submissions = plaintext[9 : 9 + numsubs]
+
     for sub in submissions:
         separated = sub.strip("|").split("|")
         separated = list(map(str.strip, separated))
         formatted[separated[0]] = {
-            "problem" : separated[2],
-            "result" : separated[3],
-            "time" : float(separated[4]),
-            "language" : separated[6]
+            "problem": separated[2],
+            "result": separated[3],
+            "time": float(separated[4]),
+            "language": separated[6],
         }
     return formatted
